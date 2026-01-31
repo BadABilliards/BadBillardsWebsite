@@ -1,0 +1,103 @@
+/*
+ * Author: BankkRoll
+ * Date: 10/9/2023
+ * Updated: 3/9/2024
+ */
+
+import React from "react";
+import { payoutSettings } from "./checkwin";
+import { useAnimation } from "framer-motion";
+
+interface SpinProps {
+  setIsSpinning: React.Dispatch<React.SetStateAction<boolean>>;
+  reelControls: ReturnType<typeof useAnimation>[];
+  setReels: React.Dispatch<React.SetStateAction<number[][]>>;
+  settings: { sounds: string };
+  spinningAudio: HTMLAudioElement | null;
+  checkWin: (newReels: number[][]) => void;
+  bet: number;
+  spendCoins?: (amount: number) => void;
+}
+
+const betRateAdjustment: Record<number, number> = {
+  5: 1.4,
+  10: 1.6,
+  25: 1.8,
+  50: 2,
+  100: 2.8,
+};
+
+function chooseSymbolBasedOnChance(
+  chances: Record<number, number>,
+  isWinningSpin: boolean
+) {
+  const symbols = Object.keys(chances).map(Number);
+  const weightedSymbols: number[] = [];
+
+  symbols.forEach((symbol) => {
+    const winMultiplier = payoutSettings[symbol]?.multiplier || 1;
+    const weight = isWinningSpin
+      ? chances[symbol] * winMultiplier * 1.5
+      : chances[symbol] * winMultiplier;
+    const entries = Math.floor(weight);
+    for (let i = 0; i < entries; i++) {
+      weightedSymbols.push(symbol);
+    }
+  });
+
+  const randomIndex = Math.floor(Math.random() * weightedSymbols.length);
+  return weightedSymbols[randomIndex];
+}
+
+export const spin = async ({
+  setIsSpinning,
+  reelControls,
+  setReels,
+  settings,
+  spinningAudio,
+  checkWin,
+  bet,
+}: SpinProps) => {
+  setIsSpinning(true);
+
+  if (spinningAudio && settings.sounds === "on") {
+    spinningAudio.currentTime = 0;
+    spinningAudio.play();
+  }
+
+  let newReels: number[][] = [];
+  const isWinningSpin = Math.random() < 1;
+
+  for (let i = 0; i < 3; i++) {
+    const reelControl = reelControls[i];
+    const symbols = Object.keys(payoutSettings).map(Number);
+
+    const symbolChances: Record<number, number> = symbols.reduce<
+      Record<number, number>
+    >((acc, symbol) => {
+      const adjustedRate = betRateAdjustment[bet];
+      acc[symbol] = payoutSettings[symbol].winRate * adjustedRate;
+      return acc;
+    }, {});
+
+    const newRow = Array.from({ length: 9 }, () =>
+      chooseSymbolBasedOnChance(symbolChances, isWinningSpin)
+    );
+
+    newReels.push(newRow);
+
+    reelControl.start({
+      y: [-2500, 0],
+      transition: { duration: 3.2 + i * 0.5, ease: "easeOut" },
+    });
+  }
+
+  await Promise.all(reelControls.map((control) => control.stop));
+
+  setReels(newReels);
+
+  setTimeout(() => {
+    checkWin(newReels);
+    setIsSpinning(false);
+  }, 5000);
+};

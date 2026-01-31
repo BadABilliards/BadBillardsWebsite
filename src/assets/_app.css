@@ -1,0 +1,460 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;400;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+  margin: 0;
+  width: 100%;
+  background-color: #425E40;
+  color: #FFFFFF;
+  font-family: 'Caveat Brush', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-image: url('/images/lightBackground.png');
+}
+
+
+p{
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 40px;
+}
+
+.navbar{
+  position: fixed;
+  height: 100px;
+  width: 100%;
+  background-color: #2C791F;
+  top: 0;
+  z-index: 10;
+}
+
+.bg-felt{
+  background-color: #2C791F;
+}
+
+.bg-grey{
+  background-color: #757373;
+}
+
+.bg-dark-grey{
+  background-color: #404040;
+}
+
+
+.banner{
+  width: 100%;
+  height: 50px;
+  background-color: black;
+  color: white;
+}
+
+.banner-text{
+  font-size: 30px;
+  margin: .35rem 200px;
+  position: relative;
+}
+
+.navbar-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns:  1fr 10fr 1fr 2fr;
+  max-width: 1500px;
+  margin: auto;
+}
+
+.navbar-links {
+  width: 100%;
+  grid-template-columns:  1fr 1fr 1fr 1fr;
+  margin: auto;
+}
+
+.social-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns:  1fr 1fr 1fr 1fr;
+  max-width: 200px;
+  margin: auto;
+}
+
+.connect-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 200px;
+}
+
+.line-item-grid {
+  grid-template-columns: 3fr 7fr;
+}
+
+.item-detail-grid{
+  grid-template-columns: 10fr 1fr;
+}
+
+.footer{
+  margin-top: 3rem;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.home-block{
+  width: 90%;
+  margin: 120px auto 0;
+  max-width: 1300px;
+  background-color: #404040;
+  background-image: url('/images/black-felt.png');
+  border-radius: 25px;
+  padding: 40px;
+  min-width: 400px;
+  border: 5px solid black
+}
+
+.product{
+  max-width: 1000px;
+}
+
+.merch-block{
+  grid-template-columns: 250px 1fr;
+  max-width: 1300px;
+}
+
+.profile-block{
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.team{
+  display:flex;
+  width: 100%;
+}
+
+.filter {
+  position: sticky;
+  top: 120px;
+}
+
+.market-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2C791F;
+  width: 250px;
+  height: 60px;
+  margin: 20px auto;
+  border-radius: 75px;
+}
+
+.checkout-button {
+  background-color: #2C791F;
+  max-width: 300px;
+  height: 75px;
+  margin: 20px auto;
+  border-radius: 75px;
+}
+
+.profile-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2C791F;
+  width: 80%;
+  height: 50px;
+  margin: 10px auto;
+  border-radius: 75px;
+}
+
+.buy-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2C791F;
+  width: 80%;
+  height: 50px;
+  margin: 10px auto;
+  border-radius: 75px;
+}
+
+.increment-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2C791F;
+  width: 45px;
+  height: 45px;
+  margin: 20px auto;
+  border-radius: 25px;
+  font-weight: 900;
+  color: #FFFFFF;
+  font-size: 1.5rem;
+}
+
+.connect-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #404040;
+  color: #FFFFFF;
+  width: 100px;
+  height: 50px;
+  text-decoration: none;
+  padding: 0 10px;
+  border-radius: 75px;
+}
+
+.member{
+  background-color: #757373;
+  padding: 20px;
+  border-radius: 25px;
+}
+
+.wallet-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  border: 3px solid black;
+  border-radius: 25px;
+  padding: 40px;
+  text-align: center;
+  background-color: #757373;
+  border: 10px solid black;
+}
+
+
+.mint-block{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #757373;
+  width: 350px;
+  padding: 15px;
+  border-radius: 25px;
+  text-align: center;
+  border: 10px solid black;
+}
+
+
+
+
+
+
+
+/* SLOT MACHINE STYLES */
+.made-by-bankkroll {
+  background-image: url('/slots/BAD_A_SLOT_MACHINE_2.png');
+}
+
+/* slots machine modal overide default styles */
+.modal-block{
+  width: 50%;
+  margin: 120px auto 0;
+  max-width: 1300px;
+  background-color: #404040;
+  background-image: url('/images/black-felt.png');
+  border-radius: 25px;
+  padding: 40px;
+  min-width: 400px;
+  border: 5px solid black
+}
+
+/* slots machine mobile */
+.slot-block{
+  width: 90%;
+  margin: 120px auto 0;
+  max-width: 1300px;
+  background-color: #404040;
+  background-image: url('/images/black-felt.png');
+  border-radius: 25px;
+  padding: 20px;
+  min-width: 400px;
+  border: 5px solid black
+}
+
+/* glow for lever-button ring*/
+.glow {
+  position: relative;
+  animation: pulsating 4s infinite linear;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,215,0,0.1) 50%, rgba(255,215,0,0) 100%);
+}
+
+.glow::before,
+.glow::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  animation: glow-animation 1.5s infinite alternate;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 204, 0, 0.1), rgba(255, 215, 0, 0.4));
+}
+
+@keyframes glow-animation {
+  0% {
+    box-shadow: 0 0 5px rgba(255, 204, 0, 0.4), 0 0 10px rgba(255, 204, 0, 0.6), 0 0 20px rgba(255, 215, 0, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(255, 204, 0, 0.4), 0 0 20px rgba(255, 204, 0, 0.6), 0 0 30px rgba(255, 215, 0, 0.4), 0 0 40px rgba(255, 215, 0, 0.4);
+  }
+}
+
+@keyframes pulsating {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.grayscale {
+  filter: grayscale(100%);
+}
+
+/* goldenGlow for winner images */
+@keyframes glowing {
+  0% {
+    filter: drop-shadow(0 0 8px gold) drop-shadow(0 0 12px gold);
+  }
+  50% {
+    filter: drop-shadow(0 0 15px gold) drop-shadow(0 0 25px gold) drop-shadow(0 0 35px gold);
+  }
+  100% {
+    filter: drop-shadow(0 0 8px gold) drop-shadow(0 0 12px gold);
+  }
+}
+
+.goldenGlow {
+  animation: glowing 1s infinite;
+  will-change: filter;
+}
+
+
+/* lever button and custom breakpoints for glowing lever */
+.lever-button {
+  position: absolute;
+  z-index: 20;
+}
+
+@media (max-width: 400px) {
+  .lever-button {
+    top: 2.7rem;
+    right: .6rem;
+  }
+}
+
+@media (min-width: 401px) and (max-width: 470px) {
+  .lever-button {
+    top: 2.7rem;
+    right: .6rem;
+  }
+}
+
+@media (min-width: 471px) and (max-width: 510px) {
+  .lever-button {
+    top: 2.7rem;
+    right: 1rem;
+  }
+}
+
+@media (min-width: 511px) and (max-width: 550px) {
+  .lever-button {
+    top: 2.7rem;
+    right: 1.8rem;
+  }
+}
+
+@media (min-width: 551px) and (max-width: 600px) {
+  .lever-button {
+    top: 2.4rem;
+    right: 3rem;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 640px) {
+  .lever-button {
+    top: 2.6rem;
+    right: 4.3rem;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+  .lever-button {
+    top: 2.7rem;
+    right: 6rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 800px) {
+  .lever-button {
+    top: 4.5rem;
+    right: 2rem;
+  }
+}
+
+@media (min-width: 801px) and (max-width: 901px) {
+  .lever-button {
+    top: 4.5rem;
+    right: 4.5rem;
+  }
+}
+
+@media (min-width: 902px) and (max-width: 1023px) {
+  .lever-button {
+    top: 4.5rem;
+    right: 8.8rem;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1150px) {
+  .lever-button {
+    top: 6.8rem;
+    right: 10.5rem;
+  }
+}
+
+@media (min-width: 1151px) and (max-width: 1280px) {
+  .lever-button {
+    top: 5.8rem;
+    right: 11rem;
+  }
+}
+
+@media (min-width: 1281px) and (max-width: 1320px) {
+  .lever-button {
+    top: 5.5rem;
+    right: 13rem;
+  }
+}
+
+@media (min-width: 1321px) and (max-width: 1400px) {
+  .lever-button {
+    top: 5.3rem;
+    right: 14rem;
+  }
+}
+
+@media (min-width: 1401px) and (max-width: 1480px) {
+  .lever-button {
+    top: 5.3rem;
+    right: 16rem;
+  }
+}
+
+@media (min-width: 1481px) and (max-width: 1535px) {
+  .lever-button {
+    top: 5.3rem;
+    right: 17rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .lever-button {
+    top: 5.3rem;
+    right: 16.4rem;
+  }
+}
